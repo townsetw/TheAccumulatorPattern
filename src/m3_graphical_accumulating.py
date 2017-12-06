@@ -183,11 +183,13 @@ def draw_lines(n, point, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+
     if n >= 2:
         for k in range(n):
-            y = 100 + ((n-1)*(k*n))
+            y = point.y + (200/(k+1))
             endpoint = rg.Point(point.x + 100, y)
             line = rg.Line(point,endpoint)
+
 
             line.attach_to(window)
             window.render(0.05)
