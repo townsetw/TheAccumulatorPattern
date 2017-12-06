@@ -220,16 +220,18 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     ####################################################################
     # ------------------------------------------------------------------
 
-    rectangle.attach_to(window)
-    window.render(0.05)
 
-    for k in range(m+1):
-        center = rg.Point((rectangle.corner_1.x + rectangle.corner_2.x) / 2,
-                          (rectangle.corner_1.y + rectangle.corner_2.y) / 2)
-        radius = ((rectangle.corner_2.x - rectangle.corner_1.x) / 2)
-        circle = rg.Circle(center, radius)
+
+    for k in range(m):
+        rectangle.attach_to(window)
+        radius = (rectangle.corner_1.y - rectangle.corner_2.y) / 2
+        x = rectangle.corner_1.x + radius + 2*radius*k
+        y = (rectangle.corner_1.y + rectangle.corner_2.y) / 2
+        center = rg.Point(x,y)
+        circle = rg.Circle(center,radius)
         circle.attach_to(window)
-        window.render(0.05)
+
+        window.render(0.03)
 
 
 
