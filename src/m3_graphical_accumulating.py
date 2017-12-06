@@ -185,8 +185,8 @@ def draw_lines(n, point, window):
     # ------------------------------------------------------------------
 
     if n >= 2:
-        for k in range(n):
-            y = point.y + (200/(k+1))
+        for k in range(point.y - 100, point.y + 100, n):
+            y = point.y + 200/(n*k)
             endpoint = rg.Point(point.x + 100, y)
             line = rg.Line(point,endpoint)
 
