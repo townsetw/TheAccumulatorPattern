@@ -183,14 +183,14 @@ def draw_lines(n, point, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+    if n >= 2:
+        for k in range(n):
+            y = 100 + ((n-1)*(k*n))
+            endpoint = rg.Point(point.x + 100, y)
+            line = rg.Line(point,endpoint)
 
-    for k in range(n+1):
-        startpoint = point
-        endpoint = rg.Point(point.x + 100, y)
-        line = rg.Line(startpoint,endpoint)
-
-        line.attach_to(window)
-        window.render(0.05)
+            line.attach_to(window)
+            window.render(0.05)
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
