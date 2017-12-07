@@ -27,8 +27,8 @@ import rosegraphics as rg
 # ----------------------------------------------------------------------
 def main():
     """ Calls the   TEST   functions in this module. """
-    #run_test_draw_squares_from_circle()
-    #run_test_draw_circles_from_rectangle()
+    run_test_draw_squares_from_circle()
+    run_test_draw_circles_from_rectangle()
     run_test_draw_lines_from_rectangles()
 
 
@@ -348,7 +348,7 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
       :type window: rg.RoseWindow
       """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONS IDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -365,15 +365,19 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     for k in range (n):
         rectangle1.attach_to(window)
         rectangle2.attach_to(window)
+
+        radius1 = rectangle1.get_width() / 2
+        radius2 = rectangle1.get_height() / 2
+
         start = rg.Point(((rectangle1.corner_1.x + rectangle1.corner_2.x) /
-                          2) - (25*k)
+                          2) - (radius1*k)
                           , ((rectangle1.corner_1.y + rectangle1.corner_2.y)
-                          / 2) + (50*k))
+                          / 2) + (radius2*k))
 
         end = rg.Point(((rectangle2.corner_1.x + rectangle2.corner_2.x) / 2)
-                       - (25*k)
+                       - (radius1*k)
                           , ((rectangle2.corner_1.y + rectangle2.corner_2.y)
-                          / 2) + (50*k))
+                          / 2) + (radius2*k))
         line = rg.Line(start,end)
         line.thickness = 5
 
